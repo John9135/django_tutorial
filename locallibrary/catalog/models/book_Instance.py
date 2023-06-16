@@ -18,7 +18,7 @@ class BookInstance(models.Model):
         ('r', 'Reserved'),
     )
 
-    status = models.CharField(
+    status_exact = models.CharField(
         max_length=1,
         choices=LOAN_STATUS,
         blank=True,
