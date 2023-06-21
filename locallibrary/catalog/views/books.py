@@ -6,12 +6,10 @@ from ..models.book import Book
 
 class BookListView(generic.ListView):
     model = Book
-    context_object_name = 'book_list'
 
     def get_context_date(self, **kwargs):
-        context = super(BookListView, self).get_context_data(**kwargs)
-        context['some_date']= 'This is just some data'
-        return context
+       def get_queryset(self):
+        return Book.objects.filter(title__icontains='war')[:5]
     
 class BookDetailView(generic.DetailView):
     model = Book
